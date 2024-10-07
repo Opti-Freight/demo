@@ -25,7 +25,7 @@ class HomePage extends StatelessWidget {
                       children: [
                         Image(
                           image: AssetImage(
-                            'images/logo.png',
+                            '/images/logo.png',
                           ),
                         ),
                         Text(
