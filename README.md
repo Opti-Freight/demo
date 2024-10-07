@@ -9,4 +9,3 @@ Opti-Freight is an Owner-Operator Federated Network designed to leverage blockch
 ## Objectives:
 
 To develop a decentralized platform that enhances the transparency, efficiency, and profitability of haulage services for owner-operators. By tokenizing haul capacity and jobs, Opti-Freight aims to give drivers control, reduce overhead, and optimize logistics through smart contracts and AI-driven route optimization.
-
