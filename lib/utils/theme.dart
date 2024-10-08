@@ -20,7 +20,7 @@ ThemeData appTheme = ThemeData(
     selectedColor: AppColors.primary,
   ),
   cardTheme: CardTheme(
-    color: AppColors.darkGrey,
+    color: AppColors.white,
     elevation: 10,
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(25),
@@ -28,7 +28,7 @@ ThemeData appTheme = ThemeData(
   ),
   useMaterial3: true,
   primaryColor: AppColors.primary,
-  scaffoldBackgroundColor: AppColors.tertiary,
+  scaffoldBackgroundColor: Colors.lightBlue[50],
   appBarTheme: const AppBarTheme(
     scrolledUnderElevation: 0,
     titleTextStyle: TextStyle(

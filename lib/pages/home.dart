@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:optifreight/widgets/widgets.dart';
+import 'package:optifreight/utils/utils.dart';
+import 'package:optifreight/pages/pages.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -9,59 +10,26 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       extendBodyBehindAppBar: true,
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           // Set a gradient background with purple and blue
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              Colors.white,
-              Colors.purple[100]!,
+              AppColors.tertiary,
+              AppColors.secondary,
             ],
           ),
         ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+        child: ListView(
           children: <Widget>[
             const SizedBox(
               height: 50,
             ),
             _buildAppBar(),
             const Spacer(),
-            // Create a row with 3 cards centered in the screen that have a column with an icon and a text, 1 card for each of the following: Owner/Operator, Shipper, Carrier the items have to be centered in the card and the card must be a button
-            SizedBox(
-              height: 250,
-              child: Row(
-                children: [
-                  const Spacer(),
-                  IconCardButton(
-                    icon: Icons.local_shipping,
-                    title: "Owner Operator",
-                    call2action:
-                        "Maximize your profits while maintaining your freedom.",
-                    onTap: () {},
-                  ),
-                  const Spacer(),
-                  IconCardButton(
-                    icon: Icons.trolley,
-                    title: "Shipper",
-                    call2action:
-                        "Ship with the largest freight network in the world.",
-                    onTap: () {},
-                  ),
-                  const Spacer(),
-                  IconCardButton(
-                    icon: Icons.assured_workload,
-                    title: "Investor",
-                    call2action: "Help finance a logistics revolution.",
-                    onTap: () {},
-                  ),
-                  const Spacer(),
-                ],
-              ),
-            ),
             const Spacer(),
-            const Spacer(),
+            const OnboardingPage(),
             const Spacer(),
           ],
         ),

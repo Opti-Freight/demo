@@ -18,8 +18,9 @@ class IconCardButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: 250,
+      height: 250,
       child: Card(
-        color: Colors.white,
+        color: Colors.lightBlue[50],
         clipBehavior: Clip.antiAlias,
         child: InkWell(
           onTap: () => onTap(),
