@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:optifreight/widgets/widgets.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -7,41 +8,25 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
-      body: Center(
+      body: Container(
+        decoration: BoxDecoration(
+          // Set a gradient background with purple and blue
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Colors.white,
+              Colors.purple[100]!,
+            ],
+          ),
+        ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             const SizedBox(
               height: 50,
             ),
-            SizedBox(
-              height: 250,
-              child: Row(
-                children: [
-                  Container(
-                    width: 250,
-                    padding: const EdgeInsets.only(left: 50),
-                    child: const Column(
-                      children: [
-                        Image(
-                          image: AssetImage(
-                            '/images/logo.png',
-                          ),
-                        ),
-                        Text(
-                          'FEDERATED FREIGHT NETWORK',
-                          style: TextStyle(
-                            fontSize: 13,
-                            fontWeight: FontWeight.w900,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const Spacer(),
-                ],
-              ),
-            ),
+            _buildAppBar(),
             const Spacer(),
             // Create a row with 3 cards centered in the screen that have a column with an icon and a text, 1 card for each of the following: Owner/Operator, Shipper, Carrier the items have to be centered in the card and the card must be a button
             SizedBox(
@@ -49,85 +34,27 @@ class HomePage extends StatelessWidget {
               child: Row(
                 children: [
                   const Spacer(),
-                  SizedBox(
-                    width: 250,
-                    child: Card(
-                      child: InkWell(
-                        onTap: () {
-                          // Navigate to the Owner/Operator page
-                        },
-                        child: const Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(
-                              Icons.local_shipping,
-                              size: 50,
-                            ),
-                            Text(
-                              'Owner/Operator',
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w900,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
+                  IconCardButton(
+                    icon: Icons.local_shipping,
+                    title: "Owner Operator",
+                    call2action:
+                        "Maximize your profits while maintaining your freedom.",
+                    onTap: () {},
                   ),
                   const Spacer(),
-                  SizedBox(
-                    width: 250,
-                    child: Card(
-                      child: InkWell(
-                        onTap: () {
-                          // Navigate to the Shipper page
-                        },
-                        child: const Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(
-                              Icons.trolley,
-                              size: 50,
-                            ),
-                            Text(
-                              'Shipper',
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w900,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
+                  IconCardButton(
+                    icon: Icons.trolley,
+                    title: "Shipper",
+                    call2action:
+                        "Ship with the largest freight network in the world.",
+                    onTap: () {},
                   ),
                   const Spacer(),
-                  SizedBox(
-                    width: 250,
-                    child: Card(
-                      child: InkWell(
-                        onTap: () {
-                          // Navigate to the Carrier page
-                        },
-                        child: const Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(
-                              Icons.assured_workload,
-                              size: 50,
-                            ),
-                            Text(
-                              'Investor',
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w900,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
+                  IconCardButton(
+                    icon: Icons.assured_workload,
+                    title: "Investor",
+                    call2action: "Help finance a logistics revolution.",
+                    onTap: () {},
                   ),
                   const Spacer(),
                 ],
@@ -138,6 +65,37 @@ class HomePage extends StatelessWidget {
             const Spacer(),
           ],
         ),
+      ),
+    );
+  }
+
+  SizedBox _buildAppBar() {
+    return SizedBox(
+      height: 250,
+      child: Row(
+        children: [
+          Container(
+            width: 250,
+            padding: const EdgeInsets.only(left: 50),
+            child: const Column(
+              children: [
+                Image(
+                  image: AssetImage(
+                    'images/logo.png',
+                  ),
+                ),
+                Text(
+                  'FEDERATED FREIGHT NETWORK',
+                  style: TextStyle(
+                    fontSize: 13,
+                    fontWeight: FontWeight.w900,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const Spacer(),
+        ],
       ),
     );
   }

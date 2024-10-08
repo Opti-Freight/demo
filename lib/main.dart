@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:optifreight/pages/pages.dart';
+import 'package:optifreight/utils/utils.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,11 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Opti-Freight Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
-        useMaterial3: true,
-        textTheme: GoogleFonts.kanitTextTheme(),
-      ),
+      theme: appTheme,
       home: const HomePage(),
     );
   }
