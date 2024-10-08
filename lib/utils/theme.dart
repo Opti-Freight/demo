@@ -135,7 +135,7 @@ ThemeData webTheme = ThemeData(
       color: AppColors.primary,
     ),
   ),
-  textTheme: GoogleFonts.poppinsTextTheme().copyWith(
+  textTheme: GoogleFonts.kanitTextTheme().copyWith(
     displayLarge: const TextStyle(
       color: AppColors.primary,
       fontWeight: FontWeight.w900,

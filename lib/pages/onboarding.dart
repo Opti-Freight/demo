@@ -31,13 +31,17 @@ class OnboardingPage extends StatelessWidget {
             icon: Icons.trolley,
             title: "Shipper",
             call2action: "Ship with the largest freight network in the world.",
-            onTap: () {},
+            onTap: () {
+              Get.to(const ShipperLandingPage());
+            },
           ),
           IconCardButton(
             icon: Icons.assured_workload,
             title: "Investor",
             call2action: "Help finance a logistics revolution.",
-            onTap: () {},
+            onTap: () {
+              Get.to(const InvestorLandingPage());
+            },
           ),
         ],
       ),
