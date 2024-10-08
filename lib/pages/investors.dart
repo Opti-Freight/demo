@@ -10,6 +10,13 @@ class InvestorLandingPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Invest in OPTI Coin'),
+        actions: [
+          Image.asset(
+            "assets/images/icon.png",
+            width: 100,
+            filterQuality: FilterQuality.high,
+          )
+        ],
       ),
       body: Center(
         child: Container(
@@ -71,12 +78,12 @@ class InvestorLandingPage extends StatelessWidget {
                 'Investing in OPTI Coin provides exposure to both the logistics and blockchain sectors, adding diversity to your investment portfolio.',
           ),
           const SizedBox(height: 20),
-          const BenefitTile(
+          /*  const BenefitTile(
             icon: Icons.attach_money,
             title: 'Staking Rewards',
             description:
                 'Earn rewards by staking OPTI coins, helping to secure the network and earn passive income through regular staking payouts.',
-          ),
+          ), */
           const SizedBox(height: 30),
           Center(
             child: ElevatedButton(

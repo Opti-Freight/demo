@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:optifreight/widgets/benefit_tile.dart';
 
 class OwnerOperatorOnboardingPage extends StatelessWidget {
   const OwnerOperatorOnboardingPage({super.key});
@@ -54,21 +55,21 @@ class OwnerOperatorOnboardingPage extends StatelessWidget {
           style: TextStyle(fontSize: 16),
         ),
         const SizedBox(height: 30),
-        const OnboardingStep(
+        const BenefitTile(
           icon: Icons.person,
           title: 'Create Your Account',
           description:
               'Sign up with your personal details and set up your wallet for secure transactions.',
         ),
         const SizedBox(height: 20),
-        const OnboardingStep(
+        const BenefitTile(
           icon: Icons.local_shipping,
           title: 'Register Your Truck',
           description:
               'Enter your truck details to tokenize your haul capacity and get started.',
         ),
         const SizedBox(height: 20),
-        const OnboardingStep(
+        const BenefitTile(
           icon: Icons.payment,
           title: 'Link Your Wallet',
           description:
@@ -82,54 +83,6 @@ class OwnerOperatorOnboardingPage extends StatelessWidget {
               Navigator.pushNamed(context, '/createAccount');
             },
             child: const Text('Get Started'),
-          ),
-        ),
-        const Spacer(),
-      ],
-    );
-  }
-}
-
-class OnboardingStep extends StatelessWidget {
-  final IconData icon;
-  final String title;
-  final String description;
-
-  const OnboardingStep({
-    super.key,
-    required this.icon,
-    required this.title,
-    required this.description,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        const Spacer(),
-        Icon(
-          icon,
-          size: 40,
-          color: Theme.of(context).primaryColor,
-        ),
-        const SizedBox(width: 16),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                title,
-                style: const TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              const SizedBox(height: 8),
-              Text(
-                description,
-                style: const TextStyle(fontSize: 14),
-              ),
-            ],
           ),
         ),
         const Spacer(),

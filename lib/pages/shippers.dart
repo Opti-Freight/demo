@@ -10,6 +10,13 @@ class ShipperLandingPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Opti-Freight for Shippers'),
+        actions: [
+          Image.asset(
+            "assets/images/icon.png",
+            width: 100,
+            filterQuality: FilterQuality.high,
+          )
+        ],
       ),
       body: Center(
         child: Container(
@@ -30,7 +37,7 @@ class ShipperLandingPage extends StatelessWidget {
     );
   }
 
-  SingleChildScrollView _buildLanding(BuildContext context) {
+  Widget _buildLanding(BuildContext context) {
     return SingleChildScrollView(
       padding: const EdgeInsets.all(16.0),
       child: Column(

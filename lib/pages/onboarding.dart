@@ -11,7 +11,6 @@ class OnboardingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 250,
       child: Wrap(
         alignment: WrapAlignment.center,
         crossAxisAlignment: WrapCrossAlignment.center,
@@ -24,7 +23,7 @@ class OnboardingPage extends StatelessWidget {
             call2action:
                 "Maximize your profits while maintaining your freedom.",
             onTap: () {
-              Get.to(const OwnerOperatorOnboardingPage());
+              Get.to(() => const OwnerOperatorOnboardingPage());
             },
           ),
           IconCardButton(
@@ -32,7 +31,7 @@ class OnboardingPage extends StatelessWidget {
             title: "Shipper",
             call2action: "Ship with the largest freight network in the world.",
             onTap: () {
-              Get.to(const ShipperLandingPage());
+              Get.to(() => const ShipperLandingPage());
             },
           ),
           IconCardButton(
@@ -40,7 +39,7 @@ class OnboardingPage extends StatelessWidget {
             title: "Investor",
             call2action: "Help finance a logistics revolution.",
             onTap: () {
-              Get.to(const InvestorLandingPage());
+              Get.to(() => const InvestorLandingPage());
             },
           ),
         ],
