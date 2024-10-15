@@ -1,6 +1,7 @@
 import 'package:easy_dashboard/easy_dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:optifreight/pages/onboarding.dart';
 import 'package:optifreight/utils/utils.dart';
 
 class HomePage extends StatelessWidget {
@@ -8,6 +9,12 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    EasyAppController controller = EasyAppController(
+      intialBody: EasyBody(
+        child: _builHome(),
+        title: const Text("Home"),
+      ),
+    );
     return Scaffold(
       extendBodyBehindAppBar: true,
       body: Container(
@@ -23,16 +30,10 @@ class HomePage extends StatelessWidget {
           ),
         ),
         child: EasyDashboard(
-          controller: EasyAppController(),
+          body: controller.body,
+          controller: controller,
           navigationIcon: const Icon(Icons.menu, color: Colors.white),
           appBarActions: [
-            IconButton(
-              icon: const Icon(
-                FontAwesomeIcons.house,
-                color: Colors.white,
-              ),
-              onPressed: () {},
-            ),
             IconButton(
               icon: const Icon(
                 Icons.settings,
@@ -64,7 +65,7 @@ class HomePage extends StatelessWidget {
               tiles: [
                 SideBarTile(
                   name: "Home",
-                  body: const Text("Home"),
+                  body: _builHome(),
                   icon: Icons.home,
                   title: const Text("Home"),
                 ),
@@ -140,11 +141,18 @@ class HomePage extends StatelessWidget {
               size: size,
               onTileTapped: (body) {
                 debugPrint("Tapped: ${body.title}");
+                controller.switchBody(body);
               },
             );
           },
         ),
       ),
+    );
+  }
+
+  Center _builHome() {
+    return const Center(
+      child: OnboardingPage(),
     );
   }
 }
