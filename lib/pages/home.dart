@@ -77,10 +77,10 @@ class HomePage extends StatelessWidget {
                   title: const Text("Purchase Orders"),
                 ),
                 SideBarTile(
-                  name: "Jobs",
-                  body: _buildJobs(),
+                  name: "Trips",
+                  body: _buildTrips(),
                   icon: FontAwesomeIcons.truckFast,
-                  title: const Text("Jobs"),
+                  title: const Text("Trips"),
                 ),
                 SideBarTile(
                   name: "Routes",
@@ -152,8 +152,11 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _builHome() {
-    return const Center(
-      child: OnboardingPage(),
+    return ListView(
+      children: const [
+        SizedBox(height: 50),
+        OnboardingPage(),
+      ],
     );
   }
 
@@ -163,10 +166,8 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget _buildJobs() {
-    return const Center(
-      child: Text("Jobs"),
-    );
+  Widget _buildTrips() {
+    return const TripsPage();
   }
 
   Widget _buildRoutes() {
