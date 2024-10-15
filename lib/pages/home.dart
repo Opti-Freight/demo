@@ -1,8 +1,9 @@
 import 'package:easy_dashboard/easy_dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:optifreight/pages/onboarding.dart';
+import 'package:optifreight/pages/pages.dart';
 import 'package:optifreight/utils/utils.dart';
+import 'package:optifreight/widgets/widgets.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -71,25 +72,25 @@ class HomePage extends StatelessWidget {
                 ),
                 SideBarTile(
                   name: "Purchase Orders",
-                  body: const Text("Orders"),
+                  body: _buildPurchaseOrders(),
                   icon: FontAwesomeIcons.box,
                   title: const Text("Purchase Orders"),
                 ),
                 SideBarTile(
                   name: "Jobs",
-                  body: const Text("Jobs"),
+                  body: _buildJobs(),
                   icon: FontAwesomeIcons.truckFast,
                   title: const Text("Jobs"),
                 ),
                 SideBarTile(
                   name: "Routes",
-                  body: const Text("Routes"),
+                  body: _buildRoutes(),
                   icon: FontAwesomeIcons.route,
                   title: const Text("Routes"),
                 ),
                 SideBarTile(
                   name: "OPTI Tokens",
-                  body: const Text("Orders"),
+                  body: _buildOptiTokens(),
                   icon: FontAwesomeIcons.coins,
                   title: const Text("OPTI Tokens"),
                 ),
@@ -150,9 +151,33 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Center _builHome() {
+  Widget _builHome() {
     return const Center(
       child: OnboardingPage(),
+    );
+  }
+
+  Widget _buildPurchaseOrders() {
+    return const Center(
+      child: ShippingFormPage(),
+    );
+  }
+
+  Widget _buildJobs() {
+    return const Center(
+      child: Text("Jobs"),
+    );
+  }
+
+  Widget _buildRoutes() {
+    return const Center(
+      child: Text("Routes"),
+    );
+  }
+
+  Widget _buildOptiTokens() {
+    return const Center(
+      child: Text("OPTI Tokens"),
     );
   }
 }

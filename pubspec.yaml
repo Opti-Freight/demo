@@ -16,6 +16,8 @@ dependencies:
   truncate: ^3.0.1
   get: ^4.6.6
   font_awesome_flutter: ^10.7.0
+  flutter_svg: ^2.0.10+1
+  flutter_svg_provider: ^1.0.7
 
 dev_dependencies:
   flutter_test:
