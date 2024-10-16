@@ -28,7 +28,7 @@ ThemeData appTheme = ThemeData(
   ),
   useMaterial3: true,
   primaryColor: AppColors.primary,
-  scaffoldBackgroundColor: Colors.lightBlue[50],
+  scaffoldBackgroundColor: Colors.white,
   appBarTheme: const AppBarTheme(
     scrolledUnderElevation: 0,
     titleTextStyle: TextStyle(
