@@ -43,43 +43,54 @@ ThemeData appTheme = ThemeData(
     ),
   ),
   textTheme: GoogleFonts.kanitTextTheme().copyWith(
-    displayLarge: const TextStyle(
-      fontSize: 30,
-      color: AppColors.primary,
+    displayLarge: TextStyle(
+      fontSize: 55,
+      color: AppColors.white,
       fontWeight: FontWeight.w900,
+      fontFamily: GoogleFonts.kanit().fontFamily,
     ),
-    displayMedium: const TextStyle(
+    displayMedium: TextStyle(
       fontSize: 25,
       color: AppColors.primary,
       fontWeight: FontWeight.w900,
+      fontFamily: GoogleFonts.kanit().fontFamily,
     ),
-    titleLarge: const TextStyle(
+    titleLarge: TextStyle(
       color: AppColors.black,
+      fontFamily: GoogleFonts.kanit().fontFamily,
     ),
-    titleMedium: const TextStyle(
+    titleMedium: TextStyle(
       color: AppColors.black,
+      fontFamily: GoogleFonts.kanit().fontFamily,
     ),
-    titleSmall: const TextStyle(
+    titleSmall: TextStyle(
       color: AppColors.black,
+      fontFamily: GoogleFonts.kanit().fontFamily,
     ),
-    labelLarge: const TextStyle(
+    labelLarge: TextStyle(
       color: AppColors.black,
+      fontFamily: GoogleFonts.kanit().fontFamily,
     ),
-    labelMedium: const TextStyle(
+    labelMedium: TextStyle(
+      fontFamily: GoogleFonts.kanit().fontFamily,
       color: AppColors.black,
       fontSize: 18,
       fontWeight: FontWeight.w700,
     ),
-    labelSmall: const TextStyle(
+    labelSmall: TextStyle(
+      fontFamily: GoogleFonts.kanit().fontFamily,
       color: AppColors.black,
     ),
-    bodyLarge: const TextStyle(
+    bodyLarge: TextStyle(
+      fontFamily: GoogleFonts.kanit().fontFamily,
       color: AppColors.black,
     ),
-    bodyMedium: const TextStyle(
+    bodyMedium: TextStyle(
+      fontFamily: GoogleFonts.kanit().fontFamily,
       color: AppColors.black,
     ),
-    bodySmall: const TextStyle(
+    bodySmall: TextStyle(
+      fontFamily: GoogleFonts.kanit().fontFamily,
       color: AppColors.black,
     ),
   ),

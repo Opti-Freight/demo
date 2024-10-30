@@ -143,10 +143,45 @@ class _HomePageState extends State<HomePage> {
 //* Widget builds
 
   Widget _builHome() {
+    TextTheme theme = Theme.of(context).textTheme;
     return ListView(
-      children: const [
-        SizedBox(height: 50),
-        OnboardingPage(),
+      padding: const EdgeInsets.all(33),
+      children: [
+        const SizedBox(height: 50),
+        Text("Onboarding", style: theme.displayLarge),
+        const SizedBox(height: 20),
+        const OnboardingPage(),
+        const SizedBox(height: 20),
+        Text("Routes", style: theme.displayLarge),
+        const SizedBox(height: 20),
+        Wrap(
+          alignment: WrapAlignment.center,
+          crossAxisAlignment: WrapCrossAlignment.center,
+          spacing: 30,
+          runSpacing: 30,
+          children: [
+            Image.asset(
+              "assets/images/route1.png",
+              filterQuality: FilterQuality.high,
+            ),
+            Image.asset(
+              "assets/images/route2.png",
+              filterQuality: FilterQuality.high,
+            ),
+            Image.asset(
+              "assets/images/route3.png",
+              filterQuality: FilterQuality.high,
+            ),
+          ],
+        ),
+        const SizedBox(height: 20),
+        Text("Statistics", style: theme.displayLarge),
+        const SizedBox(height: 20),
+        Image.asset(
+          "assets/images/stats.png",
+          filterQuality: FilterQuality.high,
+        ),
+        const SizedBox(height: 20),
       ],
     );
   }

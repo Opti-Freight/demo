@@ -44,7 +44,7 @@ class _ShippingFormPageState extends State<ShippingFormPage>
             controller: _tabController,
             children: [
               _buildShippingForm(),
-              _buildPrivatePersonForm(),
+              _buildShippingForm(),
             ],
           ),
         ),
@@ -81,12 +81,12 @@ class _ShippingFormPageState extends State<ShippingFormPage>
     );
   }
 
-  Widget _buildPrivatePersonForm() {
+  /*  Widget _buildPrivatePersonForm() {
     // This would be another form for "Persona privada" if needed
     return const Center(
       child: Text('Formulario para Persona privada'),
     );
-  }
+  } */
 
   Widget _buildCountrySelector(String country, String changeLocationText) {
     return Row(
