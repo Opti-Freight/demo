@@ -1,155 +1,146 @@
-import 'package:easy_dashboard/easy_dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:optifreight/pages/pages.dart';
 import 'package:optifreight/utils/utils.dart';
 import 'package:optifreight/widgets/widgets.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  //* Variables and Services
+  int _selectedIndex = 0;
+  final NavigationRailLabelType _labelType = NavigationRailLabelType.none;
+  double groupAlignment = -1;
+  final EdgeInsets _paddingIcons = const EdgeInsets.only(top: 15);
+
+  //* Widget Root
+
+  @override
   Widget build(BuildContext context) {
-    EasyAppController controller = EasyAppController(
-      intialBody: EasyBody(
-        child: _builHome(),
-        title: const Text("Home"),
-      ),
-    );
+    final List<Widget> pages = [
+      _builHome(),
+      _buildPurchaseOrders(),
+      _buildTrips(),
+      _buildRoutes(),
+      _buildOptiTokens(),
+    ];
     return Scaffold(
       extendBodyBehindAppBar: true,
-      body: Container(
-        decoration: const BoxDecoration(
-          // Set a gradient background with purple and blue
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              AppColors.tertiary,
-              AppColors.secondary,
-            ],
-          ),
-        ),
-        child: EasyDashboard(
-          body: controller.body,
-          controller: controller,
-          navigationIcon: const Icon(Icons.menu, color: Colors.white),
-          appBarActions: [
-            IconButton(
-              icon: const Icon(
-                Icons.settings,
-                color: Colors.white,
+      body: Row(
+        children: [
+          NavigationRail(
+            indicatorColor: AppColors.primary,
+            elevation: 10,
+            backgroundColor: AppColors.white,
+            selectedIndex: _selectedIndex,
+            groupAlignment: groupAlignment,
+            onDestinationSelected: (int index) {
+              setState(() {
+                _selectedIndex = index;
+              });
+            },
+            labelType: _labelType,
+            leading: SizedBox(
+              width: 80,
+              child: Image.asset(
+                "assets/images/icon.png",
+                filterQuality: FilterQuality.high,
               ),
-              onPressed: () {},
             ),
-          ],
-          centerTitle: true,
-          appBarColor: AppColors.tertiary,
-          sideBarColor: Colors.grey.shade100,
-          tabletView: const TabletView(
-            fullAppBar: false,
-            border: BorderSide(width: 0.5, color: Colors.grey),
-          ),
-          desktopView: const DesktopView(
-            fullAppBar: true,
-            border: BorderSide(width: 0.5, color: Colors.grey),
-          ),
-          drawer: (Size size, Widget? child) {
-            return EasyDrawer(
-              iconColor: Colors.black.withBlue(20),
-              hoverColor: Colors.grey.shade300,
-              tileColor: Colors.grey.shade100,
-              selectedColor: Colors.white,
-              selectedIconColor: Colors.white,
-              textColor: Colors.black.withBlue(20),
-              selectedTileColor: AppColors.primary,
-              tiles: [
-                SideBarTile(
-                  name: "Home",
-                  body: _builHome(),
-                  icon: Icons.home,
-                  title: const Text("Home"),
+            destinations: [
+              NavigationRailDestination(
+                padding: _paddingIcons,
+                icon: const Icon(
+                  FontAwesomeIcons.house,
+                  color: AppColors.black,
                 ),
-                SideBarTile(
-                  name: "Purchase Orders",
-                  body: _buildPurchaseOrders(),
-                  icon: FontAwesomeIcons.box,
-                  title: const Text("Purchase Orders"),
+                selectedIcon: const Icon(
+                  FontAwesomeIcons.house,
+                  color: AppColors.white,
                 ),
-                SideBarTile(
-                  name: "Trips",
-                  body: _buildTrips(),
-                  icon: FontAwesomeIcons.truckFast,
-                  title: const Text("Trips"),
-                ),
-                SideBarTile(
-                  name: "Routes",
-                  body: _buildRoutes(),
-                  icon: FontAwesomeIcons.route,
-                  title: const Text("Routes"),
-                ),
-                SideBarTile(
-                  name: "OPTI Tokens",
-                  body: _buildOptiTokens(),
-                  icon: FontAwesomeIcons.coins,
-                  title: const Text("OPTI Tokens"),
-                ),
-              ],
-              topWidget: SideBox(
-                scrollable: true,
-                height: 200,
-                child: Container(
-                  width: 200,
-                  padding: const EdgeInsets.only(top: 25),
-                  child: const Column(
-                    children: [
-                      Image(
-                        image: AssetImage(
-                          'images/logo.png',
-                        ),
-                      ),
-                      Text(
-                        'FEDERATED FREIGHT NETWORK',
-                        style: TextStyle(
-                          fontSize: 13,
-                          fontWeight: FontWeight.w900,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                label: const Text("Home"),
               ),
-              bottomWidget: SideBox(
-                scrollable: false,
-                height: 88,
+              NavigationRailDestination(
+                padding: _paddingIcons,
+                icon: const Icon(
+                  FontAwesomeIcons.truck,
+                  color: AppColors.black,
+                ),
+                selectedIcon: const Icon(
+                  FontAwesomeIcons.truck,
+                  color: AppColors.white,
+                ),
+                label: const Text("Jobs"),
+              ),
+              NavigationRailDestination(
+                padding: _paddingIcons,
+                icon: const Icon(
+                  FontAwesomeIcons.route,
+                  color: AppColors.black,
+                ),
+                selectedIcon: const Icon(
+                  FontAwesomeIcons.route,
+                  color: AppColors.white,
+                ),
+                label: const Text("Routes"),
+              ),
+              NavigationRailDestination(
+                padding: _paddingIcons,
+                icon: const Icon(
+                  Icons.token,
+                  color: AppColors.black,
+                  size: 30,
+                ),
+                selectedIcon: const Icon(
+                  Icons.token,
+                  color: AppColors.white,
+                  size: 30,
+                ),
+                label: const Text("OPTI Tokens"),
+              ),
+            ],
+            trailing: Expanded(
+              child: Align(
+                alignment: Alignment.bottomCenter,
                 child: Padding(
-                  padding: const EdgeInsets.only(bottom: 30),
-                  child: ElevatedButton.icon(
-                    onPressed: () {},
-                    label: const Text("Connect Wallet"),
-                    icon: const Icon(FontAwesomeIcons.wallet),
+                  padding: const EdgeInsets.only(bottom: 13.0),
+                  child: Card(
+                    color: AppColors.black,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: AppColors.black,
+                        borderRadius: BorderRadius.circular(
+                          13,
+                        ), // Adjust the radius as needed
+                      ),
+                      child: IconButton(
+                        iconSize: 30,
+                        icon: const Icon(
+                          Icons.wallet,
+                          color: Colors.white,
+                        ),
+                        onPressed: () {},
+                      ),
+                    ),
                   ),
                 ),
               ),
-              bottomSmallWidget: const SideBox(
-                height: 50,
-                child: Text("Bottom Small Widget"),
-              ),
-              topSmallWidget: SideBox(
-                height: 50,
-                child: Image.asset("assets/images/icon.png"),
-              ),
-              size: size,
-              onTileTapped: (body) {
-                debugPrint("Tapped: ${body.title}");
-                controller.switchBody(body);
-              },
-            );
-          },
-        ),
+            ),
+          ),
+          Expanded(
+            child: pages[_selectedIndex],
+          )
+        ],
       ),
     );
   }
+
+//* Widget builds
 
   Widget _builHome() {
     return ListView(

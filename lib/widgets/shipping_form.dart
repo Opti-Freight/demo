@@ -37,12 +37,17 @@ class _ShippingFormPageState extends State<ShippingFormPage>
           ],
         ),
       ),
-      body: TabBarView(
-        controller: _tabController,
-        children: [
-          _buildShippingForm(),
-          _buildPrivatePersonForm(),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.all(13),
+        child: Card(
+          child: TabBarView(
+            controller: _tabController,
+            children: [
+              _buildShippingForm(),
+              _buildPrivatePersonForm(),
+            ],
+          ),
+        ),
       ),
     );
   }

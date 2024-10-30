@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:optifreight/utils/utils.dart';
 
 class IconCardButton extends StatelessWidget {
   const IconCardButton({
@@ -20,7 +21,7 @@ class IconCardButton extends StatelessWidget {
       width: 250,
       height: 250,
       child: Card(
-        color: Colors.lightBlue[50],
+        color: Colors.white,
         clipBehavior: Clip.antiAlias,
         child: InkWell(
           onTap: () => onTap(),
@@ -32,6 +33,7 @@ class IconCardButton extends StatelessWidget {
                 Icon(
                   icon,
                   size: 50,
+                  color: AppColors.primary,
                 ),
                 Text(
                   title,
