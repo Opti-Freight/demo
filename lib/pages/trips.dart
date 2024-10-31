@@ -133,10 +133,10 @@ class _TripsPageState extends State<TripsPage> with TickerProviderStateMixin {
             child: TabBarView(
               controller: _tabController,
               children: [
-                const Center(child: Text('Shipment Status Data')),
-                const Center(child: Text('Appointment Status Data')),
+                _buildStatusData,
+                _buildAppointmentData,
                 _buildMapTab(),
-                const Center(child: Text('Customs Status Data')),
+                _buildCustomsData
               ],
             ),
           ),
@@ -144,20 +144,125 @@ class _TripsPageState extends State<TripsPage> with TickerProviderStateMixin {
       ),
     );
   }
+  // Creata a data table with appointment status data to pass to the TabBarView
+
+  final Widget _buildAppointmentData = Card(
+    child: DataTable(
+      columns: const [
+        DataColumn(label: Text('Shipment ID')),
+        DataColumn(label: Text('Appointment Date')),
+        DataColumn(label: Text('Appointment Time')),
+        DataColumn(label: Text('Location')),
+        DataColumn(label: Text('Status')),
+      ],
+      rows: const [
+        DataRow(cells: [
+          DataCell(Text('12345')),
+          DataCell(Text('02/22/2023')),
+          DataCell(Text('10:00 AM')),
+          DataCell(Text('Los Angeles, CA')),
+          DataCell(Text('Scheduled')),
+        ]),
+        DataRow(cells: [
+          DataCell(Text('12346')),
+          DataCell(Text('02/22/2023')),
+          DataCell(Text('10:00 AM')),
+          DataCell(Text('Los Angeles, CA')),
+          DataCell(Text('Scheduled')),
+        ]),
+        DataRow(cells: [
+          DataCell(Text('12347')),
+          DataCell(Text('02/22/2023')),
+          DataCell(Text('10:00 AM')),
+          DataCell(Text('Los Angeles, CA')),
+          DataCell(Text('Scheduled')),
+        ]),
+      ],
+    ),
+  );
+
+  // Create a data table with shipment status data to pass to the TabBarView
+  final Widget _buildStatusData = Card(
+    child: DataTable(
+      columns: const [
+        DataColumn(label: Text('Shipment ID')),
+        DataColumn(label: Text('Status')),
+        DataColumn(label: Text('Carrier')),
+        DataColumn(label: Text('Origin')),
+        DataColumn(label: Text('Destination')),
+        DataColumn(label: Text('Delivery Date')),
+      ],
+      rows: const [
+        DataRow(cells: [
+          DataCell(Text('12345')),
+          DataCell(Text('In transit')),
+          DataCell(Text('Opti-Freight')),
+          DataCell(Text('Los Angeles, CA')),
+          DataCell(Text('New York, NY')),
+          DataCell(Text('02/22/2023')),
+        ]),
+        DataRow(cells: [
+          DataCell(Text('12346')),
+          DataCell(Text('Delivered')),
+          DataCell(Text('Opti-Freight')),
+          DataCell(Text('Los Angeles, CA')),
+          DataCell(Text('New York, NY')),
+          DataCell(Text('02/22/2023')),
+        ]),
+        DataRow(cells: [
+          DataCell(Text('12347')),
+          DataCell(Text('At risk')),
+          DataCell(Text('Opti-Freight')),
+          DataCell(Text('Los Angeles, CA')),
+          DataCell(Text('New York, NY')),
+          DataCell(Text('02/22/2023')),
+        ]),
+      ],
+    ),
+  );
 
   Widget _buildMapTab() {
     // Use a package like `flutter_map` or `google_maps_flutter` for the actual map integration
     return Center(
-      child: Container(
-        height: 300,
-        width: double.infinity,
-        color: Colors.grey[300],
-        child: const Center(
-          child: Text('Map with shipment routes'), // Placeholder for the map
-        ),
-      ),
+      child: Image.asset("assets/images/map.png"),
     );
   }
+
+  // Build a data table to display customs status data
+  final Widget _buildCustomsData = Card(
+    child: DataTable(
+      columns: const [
+        DataColumn(label: Text('Shipment ID')),
+        DataColumn(label: Text('Customs Status')),
+        DataColumn(label: Text('Customs Broker')),
+        DataColumn(label: Text('Broker Contact')),
+        DataColumn(label: Text('Broker Phone')),
+      ],
+      rows: const [
+        DataRow(cells: [
+          DataCell(Text('12345')),
+          DataCell(Text('Cleared')),
+          DataCell(Text('Customs Brokerage Inc.')),
+          DataCell(Text('John Doe')),
+          DataCell(Text('555-555-5555')),
+        ]),
+        DataRow(cells: [
+          DataCell(Text('12346')),
+          DataCell(Text('Cleared')),
+          DataCell(Text('Customs Brokerage Inc.')),
+          DataCell(Text('John Doe')),
+          DataCell(Text('555-555-5555')),
+        ]),
+        DataRow(cells: [
+          DataCell(Text('12347')),
+          DataCell(Text('Cleared')),
+          DataCell(Text('Customs Brokerage Inc.')),
+          DataCell(Text('John Doe')),
+          DataCell(Text('555-555-5555')),
+        ]),
+      ],
+    ),
+  );
 
   Widget _buildCommentsSection() {
     return Container(
