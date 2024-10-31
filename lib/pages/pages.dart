@@ -1,4 +1,5 @@
 export 'home.dart';
+export 'opti.dart';
 export 'trips.dart';
 export 'shippers.dart';
 export 'investors.dart';

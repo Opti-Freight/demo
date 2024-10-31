@@ -26,7 +26,6 @@ class _HomePageState extends State<HomePage> {
       _builHome(),
       _buildPurchaseOrders(),
       _buildTrips(),
-      _buildRoutes(),
       _buildOptiTokens(),
     ];
     return Scaffold(
@@ -196,15 +195,7 @@ class _HomePageState extends State<HomePage> {
     return const TripsPage();
   }
 
-  Widget _buildRoutes() {
-    return const Center(
-      child: Text("Routes"),
-    );
-  }
-
   Widget _buildOptiTokens() {
-    return const Center(
-      child: Text("OPTI Tokens"),
-    );
+    return const BuyWidget();
   }
 }
