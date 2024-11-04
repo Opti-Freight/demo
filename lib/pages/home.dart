@@ -103,7 +103,7 @@ class _HomePageState extends State<HomePage>
   Widget _buildOperatorHome() {
     final List<Widget> operatorPages = [
       const MapOperator(),
-      _buildPurchaseOrders(),
+      const LoadBoardPage(),
       _buildOptiTokens(),
     ];
     return operatorPages[_selectedIndex];
@@ -111,8 +111,8 @@ class _HomePageState extends State<HomePage>
 
   Widget _buildShipperHome() {
     final List<Widget> shipperPages = [
-      _builHome(),
-      _buildTrips(),
+      _builShipperHome(),
+      _buildPurchaseOrders(),
       _buildOptiTokens(),
     ];
     return shipperPages[_selectedIndex];
@@ -237,6 +237,46 @@ class _HomePageState extends State<HomePage>
         const SizedBox(height: 20),
         const OnboardingPage(),
         const SizedBox(height: 20),
+        Text("Routes", style: theme.displayLarge),
+        const SizedBox(height: 20),
+        Wrap(
+          alignment: WrapAlignment.center,
+          crossAxisAlignment: WrapCrossAlignment.center,
+          spacing: 30,
+          runSpacing: 30,
+          children: [
+            Image.asset(
+              "assets/images/route1.png",
+              filterQuality: FilterQuality.high,
+            ),
+            Image.asset(
+              "assets/images/route2.png",
+              filterQuality: FilterQuality.high,
+            ),
+            Image.asset(
+              "assets/images/route3.png",
+              filterQuality: FilterQuality.high,
+            ),
+          ],
+        ),
+        const SizedBox(height: 20),
+        Text("Statistics", style: theme.displayLarge),
+        const SizedBox(height: 20),
+        Image.asset(
+          "assets/images/stats.png",
+          filterQuality: FilterQuality.high,
+        ),
+        const SizedBox(height: 20),
+      ],
+    );
+  }
+
+  Widget _builShipperHome() {
+    TextTheme theme = Theme.of(context).textTheme;
+    return ListView(
+      padding: const EdgeInsets.all(33),
+      children: [
+        const SizedBox(height: 50),
         Text("Routes", style: theme.displayLarge),
         const SizedBox(height: 20),
         Wrap(

@@ -27,16 +27,6 @@ class _ShippingFormPageState extends State<ShippingFormPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('I am shipping as...'),
-        bottom: TabBar(
-          controller: _tabController,
-          tabs: const [
-            Tab(text: 'Business'),
-            Tab(text: 'Personal'),
-          ],
-        ),
-      ),
       body: Padding(
         padding: const EdgeInsets.all(13),
         child: Card(
