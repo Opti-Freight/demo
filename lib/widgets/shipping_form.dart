@@ -48,7 +48,7 @@ class _ShippingFormPageState extends State<ShippingFormPage>
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text('Source', style: TextStyle(fontWeight: FontWeight.bold)),
+          const Text('Origin', style: TextStyle(fontWeight: FontWeight.bold)),
           const SizedBox(height: 10),
           _buildCountrySelector('Mexico', 'Change Location'),
           const SizedBox(height: 5),
